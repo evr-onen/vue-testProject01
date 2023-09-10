@@ -1,0 +1,5 @@
+vue ya basladim. bu da karalama calismam. React ile arasindaki farkliliklara bakiyorum. Acikcasi cok hosuma gitti. Ileride de Vapor mode olacakmis boylelikle solid deki tek dom mantigini kullanarak performans artisi olacak. kullanim kolayligi bakimindan su ana kadar zorlandigim pek bisey yok hatta bazi seyleri cok daha kolay zevkle kod yazmak icin tasarlamislar diyebilirim. routing prop kullanimi ref emit onUpdated onMounted vesaire baktim. Ozellikle reusable component yapmaya calistim. Acikcasi ornek veren olmadi adamakilli ben de kaynaklara bakarak yaptim Modali.. 
+
+
+I've started vue. This is my sketch. I'm looking at the differences between it and React. I honestly like it a lot. There will be Vapor mode in the future, so there will be a performance increase by using the single dom logic in solid. in terms of ease of use, there is not much I have had difficulty so far, I can even say that they have designed some things much easier to write code with pleasure. I looked at routing prop usage ref emit onUpdated onMounted etc. I especially tried to make a reusable component. Honestly, no one gave an example, so I did it by looking at the sources Modal... 
+

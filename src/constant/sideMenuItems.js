@@ -1,0 +1,132 @@
+export const sideMenuItems = [
+	{
+		label: "Dashboard",
+		type: "title",
+		icon: "homeIcon",
+		href: "welcome",
+		children: [
+			{
+				label: "Dashboard",
+				type: "content",
+				icon: "circleIcon",
+				href: "/dashboard/welcome",
+				children: [],
+			},
+		],
+	},
+	{
+		label: "Elements",
+		type: "title",
+		icon: "elementIcon",
+		href: "elements",
+		children: [
+			{
+				label: "TextField",
+				type: "content",
+				icon: "circleIcon",
+				href: "/dashboard/elements/textfieldelements",
+				children: [],
+			},
+			{
+				label: "CheckBox",
+				type: "content",
+				icon: "circleIcon",
+				href: "/dashboard/elements/checkboxelements",
+				children: [],
+			},
+			{
+				label: "RadioButton",
+				type: "content",
+				icon: "circleIcon",
+				href: "/dashboard/elements/radiobuttonelements",
+				children: [],
+			},
+		],
+	},
+	{
+		label: "UI",
+		type: "title",
+		icon: "uiIcon",
+		href: "ui",
+		children: [
+			{
+				label: "Modal - Dialog",
+				type: "content",
+				href: "/dashboard/ui/modalUI",
+				children: [],
+			},
+			{
+				label: "Button",
+				type: "content",
+				icon: "circleIcon",
+				href: "/dashboard/ui/buttonUI",
+				children: [],
+			},
+			{
+				label: "Breadcrumb",
+				type: "content",
+				icon: "circleIcon",
+				href: "/dashboard/ui/breadcrumbUI",
+				children: [],
+			},
+			{
+				label: "Card",
+				type: "content",
+				icon: "circleIcon",
+				href: "/dashboard/ui/cardUI",
+				children: [],
+			},
+		],
+	},
+	{
+		label: "Page Templates",
+		type: "title",
+		icon: "pageIcon",
+		href: "pagetemplates",
+		children: [
+			{
+				label: "Cart",
+				type: "content",
+				icon: "circleIcon",
+				href: "/dashboard/pagetemplates/cart",
+				children: [],
+			},
+		],
+	},
+	{
+		label: "Section Templates",
+		type: "title",
+		icon: "sectionIcon",
+		href: "sectiontemplates",
+		children: [
+			{
+				label: "Header",
+				type: "content",
+				icon: "circleIcon",
+				href: "/dashboard/sectiontemplates/headertemplates",
+				children: [],
+			},
+			{
+				label: "Footer",
+				type: "content",
+				icon: "circleIcon",
+				href: "/dashboard/sectiontemplates/footertemplates",
+				children: [],
+			},
+			{
+				label: "Testimonial",
+				type: "content",
+				icon: "circleIcon",
+				href: "/dashboard/sectiontemplates/testimonialtemplates",
+				children: [],
+			},
+			{
+				label: "Hero",
+				type: "content",
+				icon: "circleIcon",
+				href: "/dashboard/sectiontemplates/herotemplates",
+				children: [],
+			},
+		],
+	},
+];

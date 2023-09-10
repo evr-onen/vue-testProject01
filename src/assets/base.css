@@ -1,0 +1,38 @@
+@import "./globals.css";
+@import "./icons.css";
+@import "./swiper.css";
+@import "/node_modules/swiper/swiper.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	a {
+		@apply normal-case;
+	}
+
+	h1 {
+		font-size: 2rem;
+	}
+
+	h2 {
+		font-size: 1.5rem;
+	}
+
+	h3 {
+		font-size: 1.17rem;
+	}
+
+	h4 {
+		font-size: 1rem;
+	}
+
+	h5 {
+		font-size: 0.83rem;
+	}
+
+	h6 {
+		font-size: 0.67rem;
+	}
+}

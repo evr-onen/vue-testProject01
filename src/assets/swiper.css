@@ -1,0 +1,23 @@
+.brandSlider .swiper-slide {
+	/* height: 20rem !important; */
+	border: 1px solid rgb(180, 180, 180);
+	display: flex;
+	justify-content: center;
+	margin: 2rem 0;
+}
+.brandSlider .swiper-pagination-bullets {
+	bottom: 8px !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.brandSlider .swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
+	background-color: red;
+	height: 8px;
+	width: 8px;
+}
+.brandSlider .swiper-pagination-bullets .swiper-pagination-bullet {
+	height: 6px;
+	width: 6px;
+	background-color: #836f6f;
+}

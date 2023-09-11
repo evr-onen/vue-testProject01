@@ -1,5 +1,5 @@
 <template>
-	<div class="footer bg-slate-200 w-full flex flex-col items-center px-4 justify-between">
+	<div class="footer bg-slate-200 w-full flex flex-col items-center px-4 justify-between mt-20">
 		<div class="max-w-[81.25rem] min-h-[20rem] w-full flex flex-col sm:flex-row items-center sm:items-start mt-16">
 			<div class="flex-1 logo h-full font-cinzel flex mb-16 sm:mb-0">
 				<p class="m-auto text-4xl text-center sm:text-left">LOGO</p>

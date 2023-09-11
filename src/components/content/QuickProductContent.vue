@@ -22,7 +22,7 @@
 					{{ cats.find((cat) => cat.id === productData.categories[1]).name }}
 				</p>
 				<p class="font-cinzel text-[2.5rem] mb-12">{{ productData.name }}</p>
-				<p class="text-[1.5rem] text-red-500 font-semibold">{{ productData.price }} ₺</p>
+				<p class="text-[1.5rem] text-red-500 font-semibold">{{ finalPrice(productData.price) }} ₺</p>
 				<p class="max-w-[29rem] leading-8 opacity-60 mb-4">{{ productData.short_description }}</p>
 				<hr />
 				<span class="mt-6 capitalize flex"
@@ -56,8 +56,24 @@ const getFullCategory = () => {
 
 	return `${tmpParentCat.name}, ${tmpCat.name}`;
 };
-console.log(getFullCategory());
+
 const modules = [Pagination, Navigation];
+
+const finalPrice = (x) => {
+	let tmpPrice = x;
+	if (props.productData.discount.flat !== 0) {
+		tmpPrice -= props.productData.discount.flat;
+	}
+	if (props.productData.discount.percent !== 0) {
+		tmpPrice = tmpPrice * (1 - `0.${props.productData.discount.percent}`);
+	}
+	console.log(tmpPrice);
+	return numberWithDots(tmpPrice);
+};
+
+const numberWithDots = (x) => {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+};
 </script>
 
 <style scoped></style>

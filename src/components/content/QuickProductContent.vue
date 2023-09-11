@@ -1,5 +1,5 @@
 <template>
-	<div class="grid grid-cols-2">
+	<div class="grid md:grid-cols-2 grid-cols-1 max-h-screen overflow-auto">
 		<div class="left max-w-[31.25rem]">
 			<Swiper
 				:slidesPerView="1"
@@ -45,7 +45,7 @@ import { ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation } from "swiper/modules";
 import { categories } from "@/constant/products";
-import NumberInput from "@/components/elements/NumberElement/NumberInput.vue";
+import NumberInput from "@/components/elements/numberElement/NumberInput.vue";
 const props = defineProps(["productData"]);
 const cats = ref(categories);
 const quantity = ref(1);

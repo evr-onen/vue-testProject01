@@ -56,13 +56,13 @@
 				<div class="name uppercase font-cinzel w-2/3 text-center">
 					<router-link
 						class="lg:text-[1.625rem] md:text-lg text-[1.625rem] tracking-[0.5px]"
-						:to="makeSlug(product.name)"
+						:to="'products/' + makeSlug(product.name)"
 						>{{ product.name }}</router-link
 					>
 					<p class=""></p>
 				</div>
 				<div class="price pt-2">
-					<p class="opacity-70 font-roboto">{{ finalPrice(product.price) }} ₺</p>
+					<p class="opacity-70 font-roboto">{{ finalPrice(product) }} ₺</p>
 				</div>
 			</div>
 		</div>
@@ -74,29 +74,20 @@
 
 <script setup>
 import { ref } from "vue";
+
+import finalPrice from "../../../utils/finalPrice";
 import ModalOne from "../Modal/ModalOne.vue";
 
 import makeSlug from "../../../utils/makeSlug";
 import QuickProductContent from "@/components/content/QuickProductContent.vue";
-const props = defineProps(["product"]);
+const { product } = defineProps(["product"]);
 
 // ** refs
 const isOpenQuickProduct = ref(false);
 
-const finalPrice = (x) => {
-	let tmpPrice = x;
-	if (props.product.discount.flat !== 0) {
-		tmpPrice -= props.product.discount.flat;
-	}
-	if (props.product.discount.percent !== 0) {
-		tmpPrice = tmpPrice * (1 - `0.${props.product.discount.percent}`);
-	}
-	return numberWithDots(tmpPrice);
-};
-
-const numberWithDots = (x) => {
-	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-};
+// const numberWithDots = (x) => {
+// 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+// };
 </script>
 
 <style></style>

@@ -67,7 +67,7 @@ const finalPrice = (x) => {
 	if (props.productData.discount.percent !== 0) {
 		tmpPrice = tmpPrice * (1 - `0.${props.productData.discount.percent}`);
 	}
-	console.log(tmpPrice);
+
 	return numberWithDots(tmpPrice);
 };
 

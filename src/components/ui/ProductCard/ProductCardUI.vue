@@ -54,7 +54,12 @@
 			</div>
 			<div class="texts flex flex-col items-center py-3">
 				<div class="name uppercase font-cinzel w-2/3 text-center">
-					<p class="lg:text-[1.625rem] md:text-lg text-[1.625rem] tracking-[0.5px]">{{ product.name }}</p>
+					<router-link
+						class="lg:text-[1.625rem] md:text-lg text-[1.625rem] tracking-[0.5px]"
+						:to="makeSlug(product.name)"
+						>{{ product.name }}</router-link
+					>
+					<p class=""></p>
 				</div>
 				<div class="price pt-2">
 					<p class="opacity-70 font-roboto">{{ finalPrice(product.price) }} ₺</p>
@@ -70,6 +75,8 @@
 <script setup>
 import { ref } from "vue";
 import ModalOne from "../Modal/ModalOne.vue";
+
+import makeSlug from "../../../utils/makeSlug";
 import QuickProductContent from "@/components/content/QuickProductContent.vue";
 const props = defineProps(["product"]);
 

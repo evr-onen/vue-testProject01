@@ -1,5 +1,5 @@
 <template>
-	<div class="trendsProduct wrapper w-full">
+	<div class="trendsProduct wrapper max-w-[81.25rem] w-full">
 		<div class="header flex flex-col items-center">
 			<p class="font-condensed uppercase text-center text-sm font-normal tracking-wide">best in business</p>
 			<p class="uppercase font-cinzel text-5xl mt-2 text-center">why choose us</p>

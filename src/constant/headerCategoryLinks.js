@@ -1,18 +1,18 @@
 export const headerCategoryLinks = [
 	{
-		label: "rings",
-		href: "#",
+		label: "mouse",
+		href: "/mouse",
 	},
 	{
-		label: "bracelets",
-		href: "#",
+		label: "keyboard",
+		href: "/keyboard",
 	},
 	{
-		label: "earrings",
-		href: "#",
+		label: "monitor",
+		href: "/monitor",
 	},
 	{
-		label: "necklaces",
-		href: "#",
+		label: "mutfak",
+		href: "/mutfak",
 	},
 ];

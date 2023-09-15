@@ -1,16 +1,21 @@
 <template>
 	<div class="px-4 w-full flex justify-center bg-slate-100">
 		<div class="header h-[5.3125rem] max-w-[81.25rem] w-full flex justify-between">
-			<div class="nav h-full md:block hidden">
+			<div class="h-full md:block lg:block hidden">
 				<ul class="flex h-full">
 					<li class="h-full" v-for="(link, index) in headerCategoryLinks" :key="index">
-						<router-link class="uppercase font-condensed font-light h-full flex items-center text-sm" to="/#">{{
-							link?.label
-						}}</router-link>
+						<router-link
+							class="uppercase font-condensed font-light h-full flex items-center text-sm"
+							:to="link.href"
+							:key="index"
+							>{{ link?.label }}</router-link
+						>
 					</li>
 				</ul>
 			</div>
-			<div class="logo h-full font-cinzel flex"><p class="m-auto text-4xl">LOGO</p></div>
+			<div class="logo h-full font-cinzel flex">
+				<router-link class="h-full flex" to="/"><p class="m-auto text-4xl">LOGO</p></router-link>
+			</div>
 			<div class="buttons h-full flex">
 				<div class="pages h-full">
 					<ul class="flex h-full items-center">

@@ -8,6 +8,22 @@ const router = createRouter({
 			path: "/",
 			name: "HomePage",
 			component: HomePage,
+			children: [],
+		},
+		{
+			path: "/:cat",
+			component: () => import("/src/views/content/category/categoryPage.vue"),
+		},
+
+		{
+			path: "/products",
+			children: [
+				{
+					path: ":product",
+					name: "SingleProductPage",
+					component: () => import("/src/views/content/products/singleProduct/SingleProductPage.vue"),
+				},
+			],
 		},
 
 		{

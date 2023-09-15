@@ -14,19 +14,19 @@ export const footerPageLinks = [
 ];
 export const footerCategoryLinks = [
 	{
-		label: "Rings",
-		href: "/",
+		label: "mouse",
+		href: "/mouse",
 	},
 	{
-		label: "Bracelets",
-		href: "/",
+		label: "keyboard",
+		href: "/keyboard",
 	},
 	{
-		label: "Earrings",
-		href: "/",
+		label: "monitor",
+		href: "/monitor",
 	},
 	{
-		label: "Necklaces",
-		href: "/",
+		label: "mutfak",
+		href: "/mutfak",
 	},
 ];

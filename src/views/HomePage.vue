@@ -12,7 +12,7 @@
 	<div class="best mt-20 px-4">
 		<BestSelling :products="productItems" />
 	</div>
-	<div class="chooseUs mt-20 px-4 w-full">
+	<div class="chooseUs mt-20 px-4">
 		<ChooseUs />
 	</div>
 </template>

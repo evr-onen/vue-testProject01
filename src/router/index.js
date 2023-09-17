@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomePage from "../views/HomePage.vue";
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,12 +6,12 @@ const router = createRouter({
 		{
 			path: "/",
 			name: "HomePage",
-			component: HomePage,
+			component: () => import("@/views/content/PageLayout.vue"),
 			children: [],
 		},
 		{
 			path: "/:cat",
-			component: () => import("/src/views/content/category/categoryPage.vue"),
+			component: () => import("/src/views/content/category/PageLayout.vue"),
 		},
 
 		{
@@ -20,15 +19,15 @@ const router = createRouter({
 			children: [
 				{
 					path: ":product",
-					name: "SingleProductPage",
-					component: () => import("/src/views/content/products/singleProduct/SingleProductPage.vue"),
+					name: "Archive",
+					component: () => import("/src/views/content/products/singleProduct/PageLayout.vue"),
 				},
 			],
 		},
 		{
 			path: "/cart",
 			name: "CartPage",
-			component: () => import("/src/views/content/cart/CartPage.vue"),
+			component: () => import("/src/views/content/cart/PageLayout.vue"),
 			children: [],
 		},
 		{

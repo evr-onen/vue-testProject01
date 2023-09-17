@@ -115,15 +115,14 @@ import { ref, watch } from "vue";
 import { categories, products } from "@/constant/products";
 
 // ** Components
-import ProductCardUI from "../../../components/ui/ProductCard/ProductCardUI.vue";
-import FilterItem from "@/components/pages/archivePage/FilterItem.vue";
+import ProductCardUI from "@/components/ui/ProductCard/ProductCardUI.vue";
+import FilterItem from "./FilterItem.vue";
 
 // ** Hooks
 const route = useRoute();
 
 // ** Refs
 const categoriesData = ref(categories);
-
 const productResults = ref(products);
 const filterkeys = ref([]);
 const filterItems = ref({});

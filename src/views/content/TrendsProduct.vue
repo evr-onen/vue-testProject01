@@ -6,7 +6,7 @@
 			<div class="w-12 border-b border-black mt-4"></div>
 		</div>
 		<div class="products wrapper mt-10 grid md:grid-cols-4 grid-cols-2 gap-4">
-			<div class="" v-for="(product, index) in products" :key="index">
+			<div class="" v-for="(product, index) in trendProducts" :key="index">
 				<ProductCardUI :product="product" />
 			</div>
 		</div>
@@ -14,15 +14,20 @@
 </template>
 
 <script setup>
-import ProductCardUI from "../../ui/ProductCard/ProductCardUI.vue";
-import { ref } from "vue";
+// ** Core
+import { computed } from "vue";
+
+// ** components
+import ProductCardUI from "@/components/ui/ProductCard/ProductCardUI.vue";
 
 // ** I actually need to fetch the ids according to the data coming from the table on a time basis. This is what I do to save time.
-const trendProducts = [1, 5, 7, 10];
+const trendProductsIds = [1, 5, 7, 10];
 
-const props = defineProps(["products"]);
-let products = ref(props.products);
-products.value = products.value.filter((product) => trendProducts.indexOf(product.id) !== -1);
+const { products } = defineProps(["products"]);
+
+const trendProducts = computed(() => {
+	return products.filter((product) => trendProductsIds.indexOf(product.id) !== -1);
+});
 </script>
 
 <style></style>

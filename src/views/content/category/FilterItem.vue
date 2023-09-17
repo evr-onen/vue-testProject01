@@ -28,14 +28,16 @@
 
 <script setup>
 import { ref, onUpdated } from "vue";
-const props = defineProps(["filterValues", "keyItem", "isSideNav"]);
+
+// ** Props
+const { filterValues, keyItem, isSideNav } = defineProps(["filterValues", "keyItem", "isSideNav"]);
 const emits = defineEmits(["getCheckedData"]);
 
-const { filterValues, keyItem } = props;
-
+// ** Refs
 const checkValue = ref([]);
 const inputRef = ref(null);
 
+// ** Lifecycles
 onUpdated(() => {
 	emits("getCheckedData", { title: keyItem, data: checkValue.value });
 });

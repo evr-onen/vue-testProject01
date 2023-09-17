@@ -4,7 +4,7 @@
 			<TopImage />
 		</div>
 	</div>
-	<div class="w-full max-w-[81.25rem] brandSlider px-4"><sliderHome :images="images" /></div>
+	<div class="w-full max-w-[81.25rem] brandSlider px-4"><SliderHome :images="images" /></div>
 
 	<div class="trends mt-20 px-4">
 		<TrendsProduct :products="productItems" />
@@ -18,17 +18,22 @@
 </template>
 
 <script setup>
+// ** Core
 import { ref } from "vue";
-import { sliderBrands } from "../constant/sliderBrands";
+
+// ** Constants
+import { sliderBrands } from "@/constant/sliderBrands";
 import { products } from "@/constant/products";
-import TopImage from "../components/pages/home/topImage.vue";
-import sliderHome from "../components/pages/home/sliderHome.vue";
-import TrendsProduct from "../components/pages/home/trendsProduct.vue";
-import BestSelling from "../components/pages/home/bestSelling.vue";
-import ChooseUs from "../components/pages/home/chooseUs.vue";
 
+// ** Components
+import TopImage from "./TopImage.vue";
+import SliderHome from "./SliderHome.vue";
+import TrendsProduct from "./TrendsProduct.vue";
+import BestSelling from "./BestSelling.vue";
+import ChooseUs from "./ChooseUs.vue";
+
+// ** Refs
 const productItems = ref(products);
-
 const images = ref(sliderBrands);
 </script>
 

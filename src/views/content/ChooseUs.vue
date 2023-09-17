@@ -171,7 +171,8 @@
 </template>
 
 <script setup>
-import ChooseUsItem from "@/components/pages/home/chooseUsItem.vue";
+// components
+import ChooseUsItem from "./ChooseUsItem.vue";
 </script>
 
 <style></style>

@@ -50,21 +50,41 @@
 </template>
 
 <script setup>
-import { useRoute } from "vue-router";
-import { useCartStore } from "@/stores/cart";
+// ** Core
 import { ref } from "vue";
+
+// Route
+import { useRoute } from "vue-router";
+
+// ** Store
+import { useCartStore } from "@/stores/cart";
+import { storeToRefs } from "pinia";
+
+// ** Cookie
 import { VueCookieNext } from "vue-cookie-next";
+
+// ** Utils
 import finalPrice from "@/utils/finalPrice";
+
+// ** Constant
 import { products, categories } from "@/constant/products.js";
+
+// ** Swiper
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation } from "swiper/modules";
-import { storeToRefs } from "pinia";
+
+// ** Components
 import NumberInput from "@/components/elements/numberElement/NumberInput.vue";
 import VariantList from "@/components/ui/VariantList/VariantList.vue";
 
+// ** Hooks
 const { params } = useRoute();
 const { cartProducts } = storeToRefs(useCartStore());
+
+// ** Spiper Modules
 const modules = [Pagination, Navigation];
+
+// ** Refs
 const title = ref(params.product.replaceAll("-", " "));
 const product = ref(products.find((productItem) => productItem.name === title.value));
 const quantity = ref(1);
@@ -76,6 +96,7 @@ const price = ref(product.value.price);
 // ** vars
 let cartCookie = [];
 
+// ** Handlers
 const addCartHandler = () => {
 	let cartProduct = {
 		productId: product.value.id,

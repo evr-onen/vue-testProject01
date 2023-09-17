@@ -54,28 +54,59 @@
 	</div>
 </template>
 <script setup>
+// ** Core
 import { ref, watch, computed, onMounted, onUnmounted } from "vue";
+
+// ** Constant
 import { products } from "@/constant/products";
+
+// ** Utils
 import dotIndicator from "@/utils/dotIndicator";
-import NumberInput from "@/components/elements/numberElement/NumberInput.vue";
 import finalPrice from "@/utils/finalPrice";
+
+// ** Components
+import NumberInput from "@/components/elements/numberElement/NumberInput.vue";
+
+// ** Cookie
 import { VueCookieNext } from "vue-cookie-next";
+
+// ** Store
 import { storeToRefs } from "pinia";
 import { useCartStore } from "@/stores/cart";
 
+// ** Props
 const { product, index } = defineProps(["product", "index"]);
 const emits = defineEmits(["totalSubtotals"]);
 
 // ** refs
 const quantity = ref(product.quantity);
+
 const productIndex = computed(() => products.findIndex((item) => item.id === product.productId));
 const variant = computed(() => getVariantData());
 const allPrice = computed(() => {
 	return quantity.value * finalPrice(products[productIndex.value], variant.value, true);
 });
+
+// ** Hooks
 const { deleteCartItem } = useCartStore();
 const { cartProducts } = storeToRefs(useCartStore());
+
+// ** Vars
 let variantIndex = -1;
+
+// ** Lifecycles
+onMounted(() => {
+	emits("totalSubtotals", quantity.value * finalPrice(products[productIndex.value], variant.value, true));
+});
+onUnmounted(() => {
+	emits("totalSubtotals", -quantity.value * finalPrice(products[productIndex.value], variant.value, true));
+});
+
+// ** subtotal degisikliklerinde toplam da degisiklik yapar
+watch(allPrice, (newValue, oldValue) => {
+	emits("totalSubtotals", newValue - oldValue);
+	ChangeCartHandler();
+});
 
 const getVariantData = () => {
 	let variantProduct = {};
@@ -99,12 +130,6 @@ const ChangeCartHandler = () => {
 	VueCookieNext.setCookie("cart", JSON.stringify(cartCookie));
 	cartProducts.value = cartCookie;
 };
-onMounted(() => {
-	emits("totalSubtotals", quantity.value * finalPrice(products[productIndex.value], variant.value, true));
-});
-onUnmounted(() => {
-	emits("totalSubtotals", -quantity.value * finalPrice(products[productIndex.value], variant.value, true));
-});
 
 const deleteProductInCart = () => {
 	let cartCookie = [];
@@ -119,14 +144,6 @@ const deleteProductInCart = () => {
 	VueCookieNext.setCookie("cart", JSON.stringify(cartCookie));
 	deleteCartItem(index);
 };
-
-watch(allPrice, (newValue, oldValue) => {
-	emits("totalSubtotals", newValue - oldValue);
-	ChangeCartHandler();
-	console.log(allPrice.value);
-	console.log(newValue);
-	console.log("asdasd");
-});
 </script>
 
 <style></style>

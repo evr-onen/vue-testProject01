@@ -30,7 +30,7 @@
 					<p>{{ getFullCategory() }}</p></span
 				>
 				<div class="mt-8 flex">
-					<NumberInput class="" v-model:value="quantity" />
+					<NumberInput v-model:value="quantity" />
 					<button class="uppercase px-4 border border-gray-600 hover:bg-black hover:text-white duration-300 ml-12 w-32">
 						add to cart
 					</button>
@@ -41,7 +41,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation } from "swiper/modules";
 import { categories } from "@/constant/products";
@@ -49,6 +49,13 @@ import NumberInput from "@/components/elements/numberElement/NumberInput.vue";
 const props = defineProps(["productData"]);
 const cats = ref(categories);
 const quantity = ref(1);
+
+watch(
+	() => quantity.value,
+	() => {
+		console.log(quantity.value);
+	}
+);
 
 const getFullCategory = () => {
 	let tmpCat = cats.value.find((cat) => cat.id === props.productData.categories[1]);
@@ -74,6 +81,8 @@ const finalPrice = (x) => {
 const numberWithDots = (x) => {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 };
+
+console.log(quantity);
 </script>
 
 <style scoped></style>

@@ -5,8 +5,6 @@ import ContentLayout from "./components/ContentLayout.vue";
 import DashboardLayout from "./components/DashboardLayout.vue";
 
 const route = useRoute();
-
-console.log(route.fullPath.split("/"));
 </script>
 
 <template>

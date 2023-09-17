@@ -76,25 +76,21 @@ export const products = [
 		variant: [
 			{
 				variant_type: { color: "red" },
-				price: 1000,
 				discount: { flat: 0, percent: 0 },
 				quantity: "10",
 			},
 			{
 				variant_type: { color: "blue" },
-				price: 1000,
 				discount: { flat: 0, percent: 0 },
 				quantity: "10",
 			},
 			{
 				variant_type: { color: "black" },
-				price: 1000,
 				discount: { flat: 0, percent: 0 },
 				quantity: "4",
 			},
 			{
 				variant_type: { color: "silver" },
-				price: 1000,
 				discount: { flat: 0, percent: 0 },
 				quantity: "4",
 			},
@@ -105,7 +101,7 @@ export const products = [
 		name: "mouse 02",
 		categories: [1, 2],
 		price: 800,
-		discount: { flat: 150, percent: 0 },
+		discount: { flat: 0, percent: 0 },
 		short_description:
 			"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem quidem tempore odit id! Quod repellat cupiditate sint voluptates laborum! Voluptas rerum adipisci ducimus aut.",
 		quantity: "55",
@@ -114,25 +110,21 @@ export const products = [
 		variant: [
 			{
 				variant_type: { color: "red" },
-				price: 800,
 				discount: { flat: 100, percent: 0 },
 				quantity: "17",
 			},
 			{
 				variant_type: { color: "blue" },
-				price: 800,
 				discount: { flat: 47, percent: 0 },
 				quantity: "21",
 			},
 			{
 				variant_type: { color: "black" },
-				price: 800,
 				discount: { flat: 0, percent: 0 },
 				quantity: "7",
 			},
 			{
 				variant_type: { color: "white" },
-				price: 800,
 				discount: { flat: 10, percent: 0 },
 				quantity: "10",
 			},
@@ -143,7 +135,7 @@ export const products = [
 		name: "keyboard 01",
 		categories: [1, 3],
 		price: 2200,
-		discount: { flat: 0, percent: 15 },
+		discount: { flat: 0, percent: 0 },
 		short_description:
 			"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem quidem tempore odit id! Quod repellat cupiditate sint voluptates laborum! Voluptas rerum adipisci ducimus aut.",
 		quantity: "56",
@@ -152,25 +144,21 @@ export const products = [
 		variant: [
 			{
 				variant_type: { color: "gray", lang: "tr" },
-				price: 2200,
 				discount: { flat: 0, percent: 30 },
 				quantity: "3",
 			},
 			{
 				variant_type: { color: "gray", lang: "en" },
-				price: 1000,
 				discount: { flat: 0, percent: 0 },
 				quantity: "20",
 			},
 			{
 				variant_type: { color: "black", lang: "en" },
-				price: 1000,
 				discount: { flat: 0, percent: 0 },
 				quantity: "20",
 			},
 			{
 				variant_type: { color: "white", lang: "tr" },
-				price: 1000,
 				discount: { flat: 0, percent: 40 },
 				quantity: "13",
 			},
@@ -273,7 +261,7 @@ export const products = [
 		name: "keyboard 02",
 		categories: [1, 3],
 		price: 3500,
-		discount: { flat: 0, percent: 50 },
+		discount: { flat: 0, percent: 0 },
 		short_description:
 			"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem quidem tempore odit id! Quod repellat cupiditate sint voluptates laborum! Voluptas rerum adipisci ducimus aut.",
 		quantity: "56",
@@ -282,73 +270,66 @@ export const products = [
 		variant: [
 			{
 				variant_type: { color: "gray", lang: "tr", bluetooth: "yes" },
-				price: 2200,
 				discount: { flat: 0, percent: 30 },
 				quantity: "3",
 			},
 			{
+				variant_type: { color: "black", lang: "tr", bluetooth: "yes" },
+				discount: { flat: 0, percent: 50 },
+				quantity: "3",
+			},
+			{
 				variant_type: { color: "yellow", lang: "fr" },
-				price: 1000,
 				discount: { flat: 0, percent: 0 },
 				quantity: "20",
 			},
 			{
 				variant_type: { color: "black", lang: "fr", bluetooth: "yes" },
-				price: 1000,
-				discount: { flat: 0, percent: 0 },
+				discount: { flat: 0, percent: 50 },
 				quantity: "20",
 			},
 			{
 				variant_type: { color: "white", lang: "tr" },
-				price: 1000,
 				discount: { flat: 0, percent: 40 },
 				quantity: "13",
 			},
 			{
 				variant_type: { color: "cyan", lang: "tr" },
-				price: 1000,
 				discount: { flat: 0, percent: 40 },
 				quantity: "13",
 			},
 			{
 				variant_type: { color: "green", lang: "tr" },
-				price: 1000,
 				discount: { flat: 0, percent: 40 },
 				quantity: "13",
 			},
 			{
 				variant_type: { color: "orange", lang: "tr" },
-				price: 1000,
 				discount: { flat: 0, percent: 40 },
 				quantity: "13",
 			},
 			{
 				variant_type: { color: "teal", lang: "tr" },
-				price: 1000,
 				discount: { flat: 0, percent: 40 },
 				quantity: "13",
 			},
 			{
 				variant_type: { color: "purple", lang: "tr" },
-				price: 1000,
 				discount: { flat: 0, percent: 40 },
 				quantity: "13",
 			},
 			{
 				variant_type: { color: "dark blue", lang: "tr" },
-				price: 1000,
 				discount: { flat: 0, percent: 40 },
 				quantity: "13",
 			},
 			{
 				variant_type: { color: "pink", lang: "tr" },
-				price: 1000,
 				discount: { flat: 0, percent: 40 },
 				quantity: "13",
 			},
 			{
 				variant_type: { color: "light gray", lang: "tr" },
-				price: 1000,
 				discount: { flat: 0, percent: 40 },
 				quantity: "13",
 			},

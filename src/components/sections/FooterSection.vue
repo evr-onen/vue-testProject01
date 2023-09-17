@@ -47,7 +47,7 @@
 </template>
 
 <script setup>
-import { footerPageLinks, footerCategoryLinks } from "../constant/footer";
+import { footerPageLinks, footerCategoryLinks } from "@/constant/footer";
 </script>
 
 <style scoped>

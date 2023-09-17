@@ -18,15 +18,22 @@
 </template>
 
 <script setup>
+// ** Core
 import { ref } from "vue";
+
+// ** Swiper
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination } from "swiper/modules";
-
 import "swiper/css";
 import "swiper/css/pagination";
 
-const props = defineProps(["images"]);
-const slideImages = ref(props.images);
+// ** Props
+const { images } = defineProps(["images"]);
+
+// ** Refs
+const slideImages = ref(images);
+
+// ** Swiper module
 const modules = [Pagination];
 </script>
 

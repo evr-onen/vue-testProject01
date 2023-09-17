@@ -73,8 +73,8 @@
 import {} from "vue";
 import { storeToRefs } from "pinia";
 import { useCartStore } from "@/stores/cart";
-import { headerCategoryLinks } from "../constant/headerCategoryLinks";
-import { headerPageLinks } from "../constant/headerPageLinks";
+import { headerCategoryLinks } from "@/constant/headerCategoryLinks";
+import { headerPageLinks } from "@/constant/headerPageLinks";
 
 const { cartProducts } = storeToRefs(useCartStore());
 

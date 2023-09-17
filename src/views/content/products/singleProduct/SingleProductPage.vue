@@ -26,18 +26,18 @@
 					{{ categories.find((cat) => cat.id === product.categories[0]).name }} -
 					{{ categories.find((cat) => cat.id === product.categories[1]).name }}
 				</h3>
-				<p class="opacity-70 font-roboto text-2xl mt-8">{{ finalPrice(product) }} ₺</p>
+				<p class="opacity-70 font-roboto text-2xl mt-8">{{ price }} ₺</p>
 				<p class="font-roboto text-md mt-8 opacity-50">{{ product.short_description }}</p>
-				<div class="mt-8 flex w-full">
+				<div class="mt-8 flex w-full" v-if="product.variant.length">
 					<VariantList :variantData="product.variant" v-model:selectedVariant="selectedVar" />
 				</div>
-				<div class="">
-					<h4>Stok : {{ variantQuantity }}</h4>
+				<div class="mt-8">
+					<h4 class="font-condensed font-semibold">Stok : {{ variantQuantity }}</h4>
 				</div>
 				<div class="mt-8 flex">
 					<NumberInput v-model:value="quantity" />
 					<button
-						class="uppercase px-4 border border-gray-600 hover:bg-black hover:text-white duration-300 ml-12 w-32"
+						class="uppercase px-4 border-2 border-black hover:bg-black hover:text-white duration-300 ml-12 w-32 font-semibold"
 						@click="addCartHandler"
 						:disabled="isVariantSelected()"
 					>
@@ -51,28 +51,50 @@
 
 <script setup>
 import { useRoute } from "vue-router";
+import { useCartStore } from "@/stores/cart";
 import { ref } from "vue";
+import { VueCookieNext } from "vue-cookie-next";
 import finalPrice from "@/utils/finalPrice";
 import { products, categories } from "@/constant/products.js";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation } from "swiper/modules";
+import { storeToRefs } from "pinia";
 import NumberInput from "@/components/elements/numberElement/NumberInput.vue";
 import VariantList from "@/components/ui/VariantList/VariantList.vue";
 
 const { params } = useRoute();
+const { cartProducts } = storeToRefs(useCartStore());
 const modules = [Pagination, Navigation];
 const title = ref(params.product.replaceAll("-", " "));
 const product = ref(products.find((productItem) => productItem.name === title.value));
 const quantity = ref(1);
 const selectedVar = ref({});
 const variantQuantity = ref(null);
+const variant = ref(null);
+const price = ref(product.value.price);
+
+// ** vars
+let cartCookie = [];
 
 const addCartHandler = () => {
-	let cartProduct = { product, quantity, selectedVar };
-	console.log(cartProduct);
+	let cartProduct = {
+		productId: product.value.id,
+		quantity: quantity.value,
+		variantData: selectedVar.value,
+	};
+
+	if (VueCookieNext.isCookieAvailable("cart")) {
+		cartCookie = JSON.parse(VueCookieNext.getCookie("cart"));
+	}
+	cartCookie.push(cartProduct);
+	VueCookieNext.setCookie("cart", JSON.stringify(cartCookie));
+	cartProducts.value = cartCookie;
+	console.log(cartCookie);
 };
 
 const isVariantSelected = () => {
+	if (!product.value.variant.length) return false;
+
 	let selectedVarKeys = Object.keys(selectedVar.value);
 	let tmpVariants = product.value.variant;
 	tmpVariants = tmpVariants.filter((variantProduct) => {
@@ -84,11 +106,13 @@ const isVariantSelected = () => {
 	if (tmpVariants.length === 1) {
 		if (Object.keys(tmpVariants[0].variant_type).length === selectedVarKeys.length) {
 			variantQuantity.value = tmpVariants[0].quantity;
-
+			variant.value = tmpVariants[0];
+			price.value = finalPrice(product.value, variant.value) || product.value.price;
 			return false;
 		}
 	}
 	variantQuantity.value = product.value.quantity;
+
 	return true;
 };
 </script>

@@ -27,15 +27,19 @@ const emits = defineEmits(["update:selectedVariant"]);
 
 // ** refs
 const variants = ref(variantData);
-const variantNames = ref(Object.keys(variants.value[0].variant_type));
+const variantNames = ref();
 const selectedValues = ref({});
+
+if (variants.value.length) {
+	variantNames.value = Object.keys(variants.value[0]?.variant_type);
+}
 
 const allVariantValues = (variantName) => {
 	let tmpValues = [];
 	variants.value.map((variant) => {
-		if (variant.variant_type[variantName]) {
-			if (tmpValues.indexOf(variant.variant_type[variantName]) === -1) {
-				tmpValues.push(variant.variant_type[variantName]);
+		if (variant?.variant_type[variantName]) {
+			if (tmpValues.indexOf(variant?.variant_type[variantName]) === -1) {
+				tmpValues.push(variant?.variant_type[variantName]);
 			}
 		}
 	});
@@ -55,11 +59,11 @@ const disableHandler = (variantType, variantValueName) => {
 	if (Object.keys(selectedValues.value).length) {
 		let tmpVariantProducts = variants.value.filter((variantProduct) => {
 			return Object.keys(selectedValues.value).every((selectedKey) => {
-				return variantProduct.variant_type[selectedKey] === selectedValues.value[selectedKey];
+				return variantProduct?.variant_type[selectedKey] === selectedValues.value[selectedKey];
 			});
 		});
 
-		return !tmpVariantProducts.some((variantProduct) => variantProduct.variant_type[variantType] === variantValueName);
+		return !tmpVariantProducts.some((variantProduct) => variantProduct?.variant_type[variantType] === variantValueName);
 	} else {
 		return false;
 	}

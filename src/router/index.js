@@ -25,6 +25,18 @@ const router = createRouter({
 				},
 			],
 		},
+		{
+			path: "/cart",
+			name: "CartPage",
+			component: () => import("/src/views/content/cart/CartPage.vue"),
+			children: [],
+		},
+		{
+			path: "/deneme",
+			name: "DenemePage",
+			component: () => import("/src/views/deneme/parentComp.vue"),
+			children: [],
+		},
 
 		{
 			path: "/dashboard",

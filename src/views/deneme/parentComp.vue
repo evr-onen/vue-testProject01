@@ -1,23 +1,41 @@
 <template>
-	<div class="page-wrapper page w-full flex justify-center mt-12">
-		<CartItem v-for="(product, index) in ttt" :key="index" :product="product" />
+	<div class="w-full flex justify-center mt-20">
+		<div class="">
+			<ul class="flex">
+				<childComp @click="deleteItem(index)" v-for="(item, index) in ttt" :key="index" :t="item" />
+			</ul>
+		</div>
 	</div>
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
-import { useCartStore } from "@/stores/cart";
-import { storeToRefs } from "pinia";
-import CartItem from "./childComp.vue";
+import childComp from "./childComp.vue";
+import { products } from "@/constant/products";
 
-// ** hooks
-const { cartProducts } = storeToRefs(useCartStore());
+const yyy = ref(products);
 
-const ttt = computed(() => {
-	return cartProducts.value;
-});
-
-// ** refs
+const deleteItem = (index) => {
+	yyy.value = yyy.value.filter((_, ind) => ind !== index);
+};
 </script>
 
-<style></style>
+<style>
+li + li {
+	@apply ml-2;
+}
+</style>
+
+<!-- let ttt = computed({
+	get() {
+		return yyy.value;
+	},
+	set(val) {
+		console.log(ttt.value);
+		yyy.value = val;
+	},
+});
+const deleteItem = (index) => {
+	
+	ttt.value = yyy.value.filter((_, ind) => ind !== index);
+}; -->

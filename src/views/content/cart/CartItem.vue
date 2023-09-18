@@ -82,10 +82,6 @@ const emits = defineEmits(["totalSubtotals"]);
 const quantity = ref(product.quantity);
 
 const productIndex = computed(() => products.findIndex((item) => item.id === product.productId));
-const variant = computed(() => getVariantData());
-const allPrice = computed(() => {
-	return quantity.value * finalPrice(products[productIndex.value], variant.value, true);
-});
 
 // ** Hooks
 const { deleteCartItem } = useCartStore();
@@ -100,12 +96,6 @@ onMounted(() => {
 });
 onUnmounted(() => {
 	emits("totalSubtotals", -quantity.value * finalPrice(products[productIndex.value], variant.value, true));
-});
-
-// ** subtotal degisikliklerinde toplam da degisiklik yapar
-watch(allPrice, (newValue, oldValue) => {
-	emits("totalSubtotals", newValue - oldValue);
-	ChangeCartHandler();
 });
 
 const getVariantData = () => {
@@ -144,6 +134,18 @@ const deleteProductInCart = () => {
 	VueCookieNext.setCookie("cart", JSON.stringify(cartCookie));
 	deleteCartItem(index);
 };
+
+const variant = computed(() => getVariantData());
+
+const allPrice = computed(() => {
+	return quantity.value * finalPrice(products[productIndex.value], variant.value, true);
+});
+
+// ** subtotal degisikliklerinde toplam da degisiklik yapar
+watch(allPrice, (newValue, oldValue) => {
+	emits("totalSubtotals", newValue - oldValue);
+	ChangeCartHandler();
+});
 </script>
 
 <style></style>

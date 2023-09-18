@@ -57,10 +57,17 @@
 </template>
 
 <script setup>
+// ** Core
 import { ref, computed } from "vue";
+
+// ** store
 import { useCartStore } from "@/stores/cart";
 import { storeToRefs } from "pinia";
+
+// ** Components
 import CartItem from "./CartItem.vue";
+
+// ** Utıls
 import dotIndicator from "@/utils/dotIndicator";
 
 // ** hooks

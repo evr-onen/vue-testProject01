@@ -6,7 +6,7 @@
 				<button
 					v-for="(valueName, index) in allVariantValues(variantName)"
 					:key="index"
-					class="mr-2 px-2 py-1 flex justify-center items-center m-1 w-32 border border-gray-600 hover:bg-black hover:text-white duration-300 cursor-pointer uppercase font-semibold"
+					class="mr-2 px-2 py-1 flex justify-center items-center m-1 w-32 border bg-white border-gray-600 hover:bg-black hover:text-white duration-300 cursor-pointer uppercase font-semibold"
 					:class="{ selected: selectedValues[variantName] === valueName, small: size === 'small' }"
 					@click="() => variantValueClickHandler(valueName, variantName)"
 					:disabled="disableHandler(variantName, valueName)"

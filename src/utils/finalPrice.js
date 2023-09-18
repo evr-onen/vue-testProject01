@@ -11,7 +11,6 @@ const finalPrice = (product, variant, isNumber = false) => {
 			}
 		}
 	} else {
-		console.log("variant yok calisti");
 		if (product.discount?.flat !== 0) {
 			tmpPrice -= product.discount?.flat;
 		}

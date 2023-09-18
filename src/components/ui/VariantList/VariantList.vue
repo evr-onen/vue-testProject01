@@ -7,7 +7,7 @@
 					v-for="(valueName, index) in allVariantValues(variantName)"
 					:key="index"
 					class="mr-2 px-2 py-1 flex justify-center items-center m-1 w-32 border border-gray-600 hover:bg-black hover:text-white duration-300 cursor-pointer uppercase font-semibold"
-					:class="{ selected: selectedValues[variantName] === valueName }"
+					:class="{ selected: selectedValues[variantName] === valueName, small: size === 'small' }"
 					@click="() => variantValueClickHandler(valueName, variantName)"
 					:disabled="disableHandler(variantName, valueName)"
 				>
@@ -20,7 +20,7 @@
 
 <script setup>
 import { ref } from "vue";
-const { variantData } = defineProps(["variantData"]);
+const { variantData } = defineProps(["variantData", "size"]);
 const emits = defineEmits(["update:selectedVariant"]);
 
 // $emit('update:isOpen', false)"
@@ -77,5 +77,9 @@ const disableHandler = (variantType, variantValueName) => {
 
 button:disabled {
 	@apply !border-gray-600/40 hover:!bg-white/40 hover:!text-black/40 text-black/40 cursor-default;
+}
+
+.small {
+	@apply mr-2 px-2 py-1 w-16 font-semibold text-xs;
 }
 </style>

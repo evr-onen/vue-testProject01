@@ -53,7 +53,7 @@
 // ** Core
 import { ref } from "vue";
 
-// Route
+// ** Route
 import { useRoute } from "vue-router";
 
 // ** Store

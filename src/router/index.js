@@ -11,7 +11,7 @@ const router = createRouter({
 		},
 		{
 			path: "/:cat",
-			component: () => import("/src/views/content/category/PageLayout.vue"),
+			component: () => import("@/views/content/category/PageLayout.vue"),
 		},
 
 		{
@@ -20,20 +20,20 @@ const router = createRouter({
 				{
 					path: ":product",
 					name: "Archive",
-					component: () => import("/src/views/content/products/singleProduct/PageLayout.vue"),
+					component: () => import("@/views/content/products/singleProduct/PageLayout.vue"),
 				},
 			],
 		},
 		{
 			path: "/cart",
 			name: "CartPage",
-			component: () => import("/src/views/content/cart/PageLayout.vue"),
+			component: () => import("@/views/content/cart/PageLayout.vue"),
 			children: [],
 		},
 		{
 			path: "/deneme",
 			name: "DenemePage",
-			component: () => import("/src/views/deneme/parentComp.vue"),
+			component: () => import("@/views/deneme/parentComp.vue"),
 			children: [],
 		},
 
@@ -43,7 +43,7 @@ const router = createRouter({
 				{
 					path: "welcome",
 					name: "WelcomePage",
-					component: () => import("/src/views/dashboard/WelcomePage.vue"),
+					component: () => import("@/views/dashboard/WelcomePage.vue"),
 				},
 				{
 					path: "elements",
@@ -51,17 +51,17 @@ const router = createRouter({
 						{
 							path: "checkboxelements",
 							name: "CheckboxElements",
-							component: () => import("/src/views/dashboard/elements/CheckboxElements.vue"),
+							component: () => import("@/views/dashboard/elements/CheckboxElements.vue"),
 						},
 						{
 							path: "textfieldelements",
 							name: "TextFieldElements",
-							component: () => import("/src/views/dashboard/elements/TextFieldElements.vue"),
+							component: () => import("@/views/dashboard/elements/TextFieldElements.vue"),
 						},
 						{
 							path: "radiobuttonelements",
 							name: "RadiobuttonElements",
-							component: () => import("/src/views/dashboard/elements/RadiobuttonElements.vue"),
+							component: () => import("@/views/dashboard/elements/RadiobuttonElements.vue"),
 						},
 					],
 				},

@@ -52,8 +52,8 @@
 
 <script setup>
 import { ref } from "vue";
-import ModalOne from "../../../components/ui/Modal/ModalOne.vue";
-import CardOne from "../../../components/ui/Card/CardOne.vue";
+import ModalOne from "@/components/ui/Modal/ModalOne.vue";
+import CardOne from "@/components/ui/Card/CardOne.vue";
 const open = ref(false);
 
 const openModal = () => {

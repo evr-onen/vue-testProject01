@@ -1,5 +1,5 @@
 <script setup>
-import CardOne from "/src/components/ui/Card/CardOne.vue";
+import CardOne from "@/components/ui/Card/CardOne.vue";
 
 const ttt = () => console.log("action");
 </script>

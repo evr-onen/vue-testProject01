@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import CardOne from "../../../components/ui/Card/CardOne.vue";
+import CardOne from "@/components/ui/Card/CardOne.vue";
 </script>
 
 <style scoped></style>

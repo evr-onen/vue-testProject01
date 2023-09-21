@@ -71,22 +71,22 @@ const router = createRouter({
 						{
 							path: "modalui",
 							name: "ModalUI",
-							component: () => import("/src/views/dashboard/ui/ModalUI.vue"),
+							component: () => import("@/views/dashboard/ui/ModalUI.vue"),
 						},
 						{
 							path: "breadcrumbui",
 							name: "BreadCrumbUI",
-							component: () => import("/src/views/dashboard/ui/BreadCrumbUI.vue"),
+							component: () => import("@/views/dashboard/ui/BreadCrumbUI.vue"),
 						},
 						{
 							path: "cardui",
 							name: "CardUI",
-							component: () => import("/src/views/dashboard/ui/CardUI.vue"),
+							component: () => import("@/views/dashboard/ui/CardUI.vue"),
 						},
 						{
 							path: "buttonui",
 							name: "ButtonUI",
-							component: () => import("/src/views/dashboard/ui/ButtonUI.vue"),
+							component: () => import("@/views/dashboard/ui/ButtonUI.vue"),
 						},
 					],
 				},
@@ -96,22 +96,22 @@ const router = createRouter({
 						{
 							path: "footertemplates",
 							name: "FooterTemplates",
-							component: () => import("/src/views/dashboard/sectiontemplates/FooterTemplates.vue"),
+							component: () => import("@/views/dashboard/sectiontemplates/FooterTemplates.vue"),
 						},
 						{
 							path: "headertemplates",
 							name: "HeaderTemplates",
-							component: () => import("/src/views/dashboard/sectiontemplates/HeaderTemplates.vue"),
+							component: () => import("@/views/dashboard/sectiontemplates/HeaderTemplates.vue"),
 						},
 						{
 							path: "herotemplates",
 							name: "HeroSectionTemplates",
-							component: () => import("/src/views/dashboard/sectiontemplates/HeroSectionTemplates.vue"),
+							component: () => import("@/views/dashboard/sectiontemplates/HeroSectionTemplates.vue"),
 						},
 						{
 							path: "testimonialtemplates",
 							name: "TestimonialTemplates",
-							component: () => import("/src/views/dashboard/sectiontemplates/TestimonialTemplates.vue"),
+							component: () => import("@/views/dashboard/sectiontemplates/TestimonialTemplates.vue"),
 						},
 					],
 				},
@@ -121,7 +121,7 @@ const router = createRouter({
 						{
 							path: "cart",
 							name: "Cart",
-							component: () => import("/src/views/dashboard/pagetemplates/CartTemplates.vue"),
+							component: () => import("@/views/dashboard/pagetemplates/CartTemplates.vue"),
 						},
 					],
 				},
